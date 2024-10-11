@@ -1,0 +1,18 @@
+{
+  "name": "pixlab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./assets/css/global.css -o ./assets/css/global-min.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  },
+  "dependencies": {
+    "rippleui": "^1.12.1"
+  }
+}

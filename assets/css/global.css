@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-akaya-kanadaka{
+    font-family: "Akaya Kanadaka", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.color-main {
+    color: #8800ff;
+}
+
+.navbar-item{
+    padding: 0;
+}
+
+.navbar-item i {
+    @apply text-gray-600 cursor-pointer hover:text-purple-600 border p-2 rounded-md border-white hover:bg-purple-100;
+    font-size: 22px;
+}
+
+.navbar{
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+}
+  
