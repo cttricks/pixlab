@@ -18,6 +18,10 @@
     color: #8800ff;
 }
 
+.btn-primary{
+    background-color: #8800ff;
+}
+
 .navbar-item{
     padding: 0;
 }
@@ -32,4 +36,37 @@
     padding: 0;
     margin: 0;
 }
-  
+
+#choose-images{
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: -10000px;
+}
+
+.image-preview{
+    @apply max-w-36 text-center font-rubik text-gray-500 text-sm relative;
+
+    >div.__image{
+        @apply border-purple-400 rounded-sm border flex justify-center items-center max-h-28 overflow-hidden p-1 mb-2;
+
+        > img {
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+
+        
+    }
+
+    > h4{
+        @apply text-lg text-gray-700 mb-1;
+    }
+
+    > i {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        z-index: 9;
+        @apply text-rose-600 bg-rose-200 px-1 py-0.5 rounded-full cursor-pointer;
+    }
+}
