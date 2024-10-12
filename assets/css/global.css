@@ -30,6 +30,11 @@
     background-color: #8800ff;
 }
 
+.btn-solid-primary{
+    color: #8800ff;
+    @apply bg-purple-100 hover:bg-purple-200;
+}
+
 .navbar-item{
     padding: 0;
 }

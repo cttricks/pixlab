@@ -148,7 +148,86 @@
                 </div>
             </div>
 
+            <!-- Export Images -->
+            <div id="formatted-images">
+                <h2 class="mt-12 text-left font-rubik font-normal text-3xl text-gray-700">Your images has been resized!</h2>
+                <div class="border-2 flex p-8 gap-8 mt-12 rounded-md justify-start items-start border-double border-purple-500 relative">
+                    <!-- After Choosing Images -->
+                    <div class="image-preview">
+                        <div class="__image">
+                            <img src="/assets/images/sample.png">
+                        </div>
+                        <h4>Sample1.png</h4>
+                        <p>1200 x 120px</p>
+                        <p>114.96 KB</p>
+                        <button class="btn btn-solid-primary mt-2 rounded-md btn-xs"><i class="ri-download-fill mr-1"></i>Download</button>
+                    </div>
+                    <div class="image-preview">
+                        <div class="__image">
+                            <img src="/assets/images/sample.png">
+                        </div>
+                        <h4>Sample2.png</h4>
+                        <p>1200 x 120px</p>
+                        <p>114.96 KB</p>
+                        <button class="btn btn-solid-primary mt-2 rounded-md btn-xs"><i class="ri-download-fill mr-1"></i>Download</button>
+                    </div>
+                    <!-- End -->
+                </div>
+                <button class="btn btn-primary mt-4 rounded-md"><i class="ri-download-fill mr-1"></i>Download All Images</button>
+            </div>
+        </section>
+
+        <!-- General Info & FAQ -->
+        <section class="w-full py-12 border-t-2 border-gray-200 mt-12 font-rubik">
+            <h2 class="font-normal text-4xl text-gray-700">FAQ&apos;s</h2>
+            <p class="font-normal text-lg text-gray-500">Here are some common questions you may have while using this tool for image resizing.</p>
+            <div class="accordion-group mt-4">
+                <div class="accordion">
+                    <input type="checkbox" id="accordion-1" class="accordion-toggle" />
+                    <label for="accordion-1" class="accordion-title font-normal">What is Lossless Compression?</label>
+                    <div class="accordion-content">
+                        <div class="min-h-0">Lorem ipsum</div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+    <footer class="w-fill bg-purple-50">
+        <!-- Site info -->
+        <section class="py-16 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <div class="w-full flex gap-20">
+                <div class="flex-1">
+                    <div class="flex justify-start">
+                        <img src="/assets/icons/android-chrome-192x192.png" class="w-7 h-7">
+                        <div class="font-akaya-kanadaka text-2xl -mt-0.5 ml-0.5 color-main">ix Lab</div>
+                    </div>
+                    <p class="font-rubik text-gray-700 font-light mt-4">PixLab is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security.</p>
+                </div>
+                <div class="flex-1 flex">
+                    <div class="flex-1 justify-end flex"></div>
+                    <div class="flex-1 justify-end flex">
+                        <div>
+                            <h3 class="text-base font-rubik mb-3">Important Links</h3>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">About</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Contact</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Privacy Policy</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">GitHub Repo</a></p>
+                        </div>
+                    </div>
+                    <div class="flex-1 justify-end flex">
+                        <div>
+                            <h3 class="text-base font-rubik mb-3">Other Products</h3>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">How it works?</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Resize Images</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Copyright Info -->
+        <section class="w-full text-center bg-purple-600">
+            <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">PixLab &copy; 2024 All rights reserved - Reduce Images Online &amp; Offline</p>
+        </section>
+    </footer>
 </body>
 </html>
