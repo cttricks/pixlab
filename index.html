@@ -30,7 +30,20 @@
                 </a>
             </div>
             <div class="navbar-end gap-0">
-                <a class="navbar-item"><i class="ri-moon-fill"></i></a>
+                <div class="dropdown navbar-item">
+                    <label tabindex="0"><i class="ri-moon-fill"></i></label>
+                    <div class="dropdown-menu font-rubik w-32">
+                        <div class="dropdown-item text-base flex justify-center">
+                            <div><span class="ri-sun-line text-lg mr-2"></span>Light</div>
+                        </div>
+                        <div class="dropdown-item text-base flex justify-center">
+                            <div><span class="ri-moon-line text-lg mr-2"></span>Dark</div>
+                        </div>
+                        <div class="dropdown-item text-base flex justify-center">
+                            <div><span class="ri-computer-line text-lg mr-2"></span>System</div>
+                        </div>
+                    </div>
+                </div>
                 <a class="navbar-item"><i class="ri-github-line"></i></a>
             </div>
         </div>
@@ -179,10 +192,10 @@
         </section>
 
         <!-- General Info & FAQ -->
-        <section class="w-full py-12 border-t-2 border-gray-200 mt-12 font-rubik">
+        <section class="w-full py-12 mt-12 font-rubik">
             <h2 class="font-normal text-4xl text-gray-700">FAQ&apos;s</h2>
             <p class="font-normal text-lg text-gray-500">Here are some common questions you may have while using this tool for image resizing.</p>
-            <div class="accordion-group mt-4">
+            <div class="accordion-group mt-4 mb-12">
                 <div class="accordion">
                     <input type="checkbox" id="accordion-1" class="accordion-toggle" />
                     <label for="accordion-1" class="accordion-title font-normal">What is Lossless Compression?</label>

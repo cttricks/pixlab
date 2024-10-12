@@ -83,3 +83,8 @@
         @apply text-rose-600 bg-rose-200 px-1 py-0.5 rounded-full cursor-pointer;
     }
 }
+
+#formating-form,
+#formatted-images {
+    display: none;
+}
