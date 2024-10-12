@@ -1169,6 +1169,40 @@ input[type="number"]::-webkit-inner-spin-button,
   margin: 0;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .btn {
   --tw-bg-opacity: 1;
   --tw-text-opacity: 1;
@@ -1226,15 +1260,6 @@ input[type="number"]::-webkit-inner-spin-button,
   outline-color: rgb(var(--primary));
 }
 
-.btn-error {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--error)/var(--tw-bg-opacity));
-}
-
-.btn-error:focus-visible {
-  outline-color: rgb(var(--error));
-}
-
 .btn-xs {
   border-radius: 7px;
   font-size: .75rem;
@@ -1261,10 +1286,6 @@ input[type="number"]::-webkit-inner-spin-button,
 .btn:disabled {
   opacity: 0.5;
   pointer-events: none;
-}
-
-.btn-block {
-  width: 100%;
 }
 
 .btn-circle {
@@ -1728,11 +1749,6 @@ input[type="number"]::-webkit-inner-spin-button,
   transition-timing-function: cubic-bezier(.4,0,.2,1);
   visibility: hidden;
   z-index: 60;
-}
-
-.modal-overlay {
-  inset: 0;
-  position: absolute;
 }
 
 .modal-state {
@@ -2480,12 +2496,12 @@ html:has(.modal-state:checked) {
   left: 6rem;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .right-2 {
   right: 0.5rem;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .top-2 {
@@ -2686,10 +2702,6 @@ html:has(.modal-state:checked) {
   align-items: flex-start;
 }
 
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
 }
@@ -2736,10 +2748,6 @@ html:has(.modal-state:checked) {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
 }
 
 .rounded-full {
@@ -2792,6 +2800,11 @@ html:has(.modal-state:checked) {
   background-color: rgb(147 51 234 / var(--tw-bg-opacity));
 }
 
+.bg-rose-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 241 242 / var(--tw-bg-opacity));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -2799,21 +2812,6 @@ html:has(.modal-state:checked) {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.bg-rose-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 228 230 / var(--tw-bg-opacity));
-}
-
-.bg-rose-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 241 242 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\/assets\/icons\/transparent\.png\'\)\] {
@@ -2846,21 +2844,6 @@ html:has(.modal-state:checked) {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .pb-3 {
@@ -2946,6 +2929,11 @@ html:has(.modal-state:checked) {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
 .text-purple-100 {
   --tw-text-opacity: 1;
   color: rgb(243 232 255 / var(--tw-text-opacity));
@@ -2959,11 +2947,6 @@ html:has(.modal-state:checked) {
 .text-rose-600 {
   --tw-text-opacity: 1;
   color: rgb(225 29 72 / var(--tw-text-opacity));
-}
-
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .mix-blend-darken {
@@ -3129,7 +3112,7 @@ html:has(.modal-state:checked) {
   }
 }
 
-#formating-form,
+#formatting-form,
 #formatted-images {
   display: none;
 }

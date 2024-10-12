@@ -1,5 +1,30 @@
 let selectedFiles = {};
 
+// Populate selected images and show formatting-form
+
+function showSelectedImage() {
+    
+    selectedImageContainer.find('div.image-preview').remove();
+    if(Object.keys(selectedFiles).length < 1){
+        document.getElementById('formatting-form').style.display = 'none';
+        document.getElementById('imageDropArea').style.display = 'flex';
+        return;
+    }
+
+    document.getElementById('imageDropArea').style.display = 'none';
+    document.getElementById('formatting-form').style.display = 'block';
+
+    Object.entries(selectedFiles).forEach(([key, value]) => {
+        const template = $('#selected-images')[0].content.cloneNode(true);
+        $(template).find('i').prop('id', key);
+        $(template).find('img').prop('src', value.src);
+        $(template).find('h4').html(value.name);
+        $(template).find('h5').html(`${value.width} x ${value.width} px`);
+        $(template).find('p').html(value.size);
+        $('#formatting-form div.border-dashed').append(template);
+    })
+}
+
 // Format file size
 function formatFileSize(size) {
     const units = ['B', 'KB', 'MB', 'GB', 'TB'];
@@ -31,7 +56,7 @@ function getImageDimensions(file) {
         reader.onload = function (event) {
             img.src = event.target.result; // Set image source to file data URL
             img.onload = function () {
-                resolve({ width: img.naturalWidth, height: img.naturalHeight });
+                resolve({ width: img.naturalWidth, height: img.naturalHeight, src: img.src });
             };
             img.onerror = function () {
                 reject('Error loading image');
@@ -67,7 +92,6 @@ const handleImageDrop = async (files) => {
     if (files.length < 0) return;
 
     // List all image files
-    selectedFiles = {};
     let log = [];
     for (let i = 0; i < files.length; i++) {
         
@@ -81,21 +105,28 @@ const handleImageDrop = async (files) => {
         }
 
         let fileId = crypto.randomUUID();
-        selectedFiles[fileId] = {
-            name: files[i].name,
-            file: files[i],
-            size: formatFileSize(files[i].size),
-            dimensions: await getImageDimensions(files[i])
-        };
+        selectedFiles[fileId] = await getImageDimensions(files[i]);
+        selectedFiles[fileId]['name'] = files[i].name;
+        selectedFiles[fileId]['size'] = formatFileSize(files[i].size);
 
     }
 
     if (log.length > 0) showImageImportErrorLogs(log);
-    console.log(selectedFiles);
+    showSelectedImage();
 
 }
 
 const imageDropArea = $('#imageDropArea');
+const selectedImageContainer = $('#formatting-form div.border-dashed');
+
+// Handel image removal from selected images container
+selectedImageContainer.on('click', (e) => {
+    if (e.target.tagName !== 'I') return;
+
+    delete selectedFiles[e.target.id];
+    showSelectedImage();
+
+});
 
 imageDropArea.on('dragover', (e) => {
     e.preventDefault();
@@ -111,11 +142,17 @@ imageDropArea.on('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
     const files = e.originalEvent.dataTransfer.files;
+
+    selectedFiles = {};
     handleImageDrop(files);
 });
 
 $('#choose-images').on('change', (e) => {
     handleImageDrop(e.target.files);
 });
+
+$('#imageDropArea div.z-10').on('click', () => {
+    $('#choose-images').click();
+})
 
 console.log('resizer');
