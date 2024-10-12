@@ -1,0 +1,26 @@
+[
+    {
+        "question": "What is PixLab?",
+        "answer": "PixLab is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security."
+    },
+    {
+        "question": "How it works?",
+        "answer": "Updating soon..."
+    },
+    {
+        "question": "Will my images be uploaded to a server?",
+        "answer": "No, this tool never uploads any images to a server. It operates entirely within your browser, ensuring that your files remain private and secure. You can use the tool without worrying about your images being stored or processed externally."
+    },
+    {
+        "question": "What are lossless and lossy compression?",
+        "answer": "Lossless and lossy compression are two methods used to reduce digital file sizes, especially for images and audio. Lossless compression retains all original data, allowing for perfect reconstruction of the file upon decompression, making it ideal for applications where quality is crucial, such as professional photography. Common formats include PNG. \nIn contrast, lossy compression reduces file size by permanently removing some data, often leading to a noticeable loss in quality. This method is suitable for situations where smaller file sizes are essential, such as web graphics or streaming media, with JPEG for images and MP3 for audio being popular examples. Understanding these differences helps users select the right compression method based on their needs for quality versus size."
+    },
+    {
+        "question": "What do image quality settings do?",
+        "answer": "Image quality settings play a crucial role in determining the balance between image quality and file size. At 0% quality, you will achieve the smallest file size, but the resulting image will be of poor visual quality, often deemed unusable. On the other hand, 100% quality produces the largest file size, but it offers the best image clarity and detail. For most practical purposes, qualities around 70% or 90% present an excellent compromise, allowing users to maintain good image quality while keeping file sizes manageable. Understanding how these settings affect your images can help you make informed decisions based on your specific needs, whether it's for web use, printing, or storage."
+    },
+    {
+        "question": "What is an image file size?",
+        "answer": "Image file size refers to the amount of digital storage space that an image occupies on a device or storage medium, typically measured in bytes (KB, MB, etc.). The file size is influenced by several factors, including the image dimensions (width and height), color depth, and the compression method used (lossless or lossy). Larger file sizes often indicate higher quality and resolution, which are necessary for detailed prints or professional use, while smaller file sizes are advantageous for web usage and faster loading times. Understanding image file size is essential for optimizing images for different applications without compromising too much on quality."
+    }
+]

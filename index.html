@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" style="color-scheme: light;">
+<html lang="en" data-theme="light" data-theme-name="light" style="color-scheme: light;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,20 +31,20 @@
             </div>
             <div class="navbar-end gap-0">
                 <div class="dropdown navbar-item">
-                    <label tabindex="0"><i class="ri-moon-fill"></i></label>
+                    <label tabindex="0"><i class="ri-sun-fill"></i></label>
                     <div class="dropdown-menu font-rubik w-32">
                         <div class="dropdown-item text-base flex justify-center">
-                            <div><span class="ri-sun-line text-lg mr-2"></span>Light</div>
+                            <div class="pointer-events-none"><span class="ri-sun-fill text-lg mr-2"></span>Light</div>
                         </div>
                         <div class="dropdown-item text-base flex justify-center">
-                            <div><span class="ri-moon-line text-lg mr-2"></span>Dark</div>
+                            <div class="pointer-events-none"><span class="ri-moon-fill text-lg mr-2"></span>Dark</div>
                         </div>
                         <div class="dropdown-item text-base flex justify-center">
-                            <div><span class="ri-computer-line text-lg mr-2"></span>System</div>
+                            <div class="pointer-events-none"><span class="ri-computer-fill text-lg mr-2"></span>System</div>
                         </div>
                     </div>
                 </div>
-                <a class="navbar-item"><i class="ri-github-line"></i></a>
+                <a href="https://github.com/cttricks/pixlab" target="_blank" class="navbar-item"><i class="ri-github-line"></i></a>
             </div>
         </div>
     </header>
@@ -52,7 +52,7 @@
         <!-- Feature: Resize Image -->
         <section class="w-full py-4">
             <h2 class="text-center font-rubik font-normal text-4xl text-gray-700">Images Resizer</h2>
-            <div class="border-2 mt-12 rounded-md flex justify-center items-center border-dashed border-purple-500 relative">
+            <div class="border-2 mt-12 rounded-md flex justify-center items-center border-dashed border-purple-500 relative" id="imageDropArea">
                 <!-- Before Choosing Images -->
                 <label for="choose-images" class="absolute top-0 left-0 h-full w-full z-0 cursor-pointer"></label>
                 <input id="choose-images" type="file" multiple>
@@ -196,13 +196,15 @@
             <h2 class="font-normal text-4xl text-gray-700">FAQ&apos;s</h2>
             <p class="font-normal text-lg text-gray-500">Here are some common questions you may have while using this tool for image resizing.</p>
             <div class="accordion-group mt-4 mb-12">
-                <div class="accordion">
-                    <input type="checkbox" id="accordion-1" class="accordion-toggle" />
-                    <label for="accordion-1" class="accordion-title font-normal">What is Lossless Compression?</label>
-                    <div class="accordion-content">
-                        <div class="min-h-0">Lorem ipsum</div>
+                <template id="accordion-template">
+                    <div class="accordion">
+                        <input type="checkbox" id="accordion-1" class="accordion-toggle" />
+                        <label for="accordion-1" class="accordion-title font-normal">What is Lossless Compression?</label>
+                        <div class="accordion-content">
+                            <p class="min-h-0 text-gray-600">Lorem ipsum</p>
+                        </div>
                     </div>
-                </div>
+                </template>
             </div>
         </section>
     </main>
@@ -243,5 +245,8 @@
             <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">PixLab &copy; 2024 All rights reserved - Reduce Images Online &amp; Offline</p>
         </section>
     </footer>
+
+    <script type="text/javascript" src="/assets/js/controls.js"></script>
+    <script type="text/javascript" src="/assets/js/resizer.js"></script>
 </body>
 </html>
