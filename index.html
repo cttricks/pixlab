@@ -208,6 +208,7 @@
             </div>
         </section>
     </main>
+
     <footer class="w-fill bg-purple-50">
         <!-- Site info -->
         <section class="py-16 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
@@ -245,6 +246,22 @@
             <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">PixLab &copy; 2024 All rights reserved - Reduce Images Online &amp; Offline</p>
         </section>
     </footer>
+
+    <!-- modals -->
+    <input class="modal-state" id="image-import-log" type="checkbox" />
+    <div class="modal">
+        <div class="modal-content flex flex-col gap-4">
+            <label for="image-import-log" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+            <h2 class="text-xl">Unsupported Files</h2>
+            <p class="text-sm text-gray-500">The following files could not be processed because they do not meet the required criteria. Please ensure that you only upload image files with the following extensions: PNG, JPG, or JPEG.</p>
+            <div class="images-error-logs w-full">
+                <div class="bg-rose-50 p-4 rounded-md">
+                    <div class="text-gray-800">Unsupported FileSize 10546518, it must be less ten 10MB</div>
+                    <div class="text-rose-600 text-sm">sample.png</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="/assets/js/controls.js"></script>
     <script type="text/javascript" src="/assets/js/resizer.js"></script>
