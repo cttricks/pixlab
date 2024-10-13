@@ -120,6 +120,7 @@ const handleImageDrop = async (files) => {
 }
 
 const imageDropArea = $('#imageDropArea');
+const imageDropAreaPS = $('#formatting-form div.border-dashed');
 const selectedImageContainer = $('#formatting-form div.border-dashed');
 
 // Handel image removal from selected images container
@@ -144,15 +145,31 @@ imageDropArea.on('dragleave', (e) => {
 imageDropArea.on('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    const files = e.originalEvent.dataTransfer.files;
 
+    const files = e.originalEvent.dataTransfer.files;
     handleImageDrop(files);
-    document.querySelector('#formatting-form form').reset();
+});
+
+imageDropAreaPS.on('dragover', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+});
+
+imageDropAreaPS.on('dragleave', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+});
+
+imageDropAreaPS.on('drop', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const files = e.originalEvent.dataTransfer.files;
+    handleImageDrop(files);
 });
 
 $('#choose-images').on('change', (e) => {
     handleImageDrop(e.target.files);
-    document.querySelector('#formatting-form form').reset();
 });
 
 $('label.btn-solid-error').on('click', (e) => {
