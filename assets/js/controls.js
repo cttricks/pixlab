@@ -78,3 +78,24 @@ $('header div.dropdown-menu').on('click', (e) => {
 $(document).ready(() => {
     changeTheme((localStorage.getItem('theme')??'light'));
 });
+
+// Toastify
+const toast = {
+    info: (message) => {
+        toast.show(message, "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)");
+    },
+
+    error: (message)  => {
+        toast.show(message, "#e50b60");
+    },
+
+    show: (message, background) => {
+        Toastify({
+            text: message,
+            gravity: "bottom",
+            position: "left",
+            style: { background }
+        }).showToast();
+    }
+}
+ 

@@ -1,17 +1,20 @@
 let selectedFiles = {};
+let resizedImages = {};
 
 // Populate selected images and show formatting-form
 
 function showSelectedImage() {
-    
+
     selectedImageContainer.find('div.image-preview').remove();
-    if(Object.keys(selectedFiles).length < 1){
+    if (Object.keys(selectedFiles).length < 1) {
         document.getElementById('formatting-form').style.display = 'none';
+        document.getElementById('formatted-images').style.display = 'none';
         document.getElementById('imageDropArea').style.display = 'flex';
         return;
     }
 
     document.getElementById('imageDropArea').style.display = 'none';
+    document.getElementById('formatted-images').style.display = 'none';
     document.getElementById('formatting-form').style.display = 'block';
 
     Object.entries(selectedFiles).forEach(([key, value]) => {
@@ -26,7 +29,7 @@ function showSelectedImage() {
 }
 
 // Format file size
-function formatFileSize(size) {
+async function formatFileSize(size) {
     const units = ['B', 'KB', 'MB', 'GB', 'TB'];
     let i = 0;
     while (size >= 1024 && i < units.length - 1) {
@@ -71,7 +74,7 @@ function getImageDimensions(file) {
     });
 }
 
-function showImageImportErrorLogs(log = []){
+function showImageImportErrorLogs(log = []) {
 
     $('div.images-error-logs').html('');
 
@@ -94,7 +97,7 @@ const handleImageDrop = async (files) => {
     // List all image files
     let log = [];
     for (let i = 0; i < files.length; i++) {
-        
+
         if (!isImageFile(files[i].type)) {
             log.push(`${files[i].name} | Unsupported FileType ${files[i].type}, Only png/jpg/jpeg allowed`);
             continue;
@@ -107,7 +110,7 @@ const handleImageDrop = async (files) => {
         let fileId = crypto.randomUUID();
         selectedFiles[fileId] = await getImageDimensions(files[i]);
         selectedFiles[fileId]['name'] = files[i].name;
-        selectedFiles[fileId]['size'] = formatFileSize(files[i].size);
+        selectedFiles[fileId]['size'] = await formatFileSize(files[i].size);
 
     }
 
@@ -155,4 +158,146 @@ $('#imageDropArea div.z-10').on('click', () => {
     $('#choose-images').click();
 })
 
-console.log('resizer');
+function applyBgColorChange(value){
+    value = (value === '#ffffff') ? '#000000' : value;
+    document.querySelector('div[data-color] label').style.color = value;
+}
+
+const canvasBg = $('#bg-color-picker');
+canvasBg.on('change', (e) => {
+    applyBgColorChange(e.target.value);
+});
+
+$('div[data-color]').on('click' , (e) => {
+    let target = e.target;
+    
+    if(target.tagName === 'LABEL') target = e.target.parentElement;
+    if(target.tagName === 'INPUT') return;
+
+    $('div[data-color]').removeClass('border-purple-600');
+    $(target).addClass('border-purple-600');
+    $(canvasBg).val($(target).attr('data-color'));
+    applyBgColorChange($(canvasBg).val());
+});
+
+$('#lockWidthAndHeight').on('click', (e) => {
+    if ($(e.target).hasClass('ri-lock-fill')){
+        $(e.target).toggleClass('ri-lock-fill');
+        $(e.target).addClass('ri-lock-unlock-fill');
+        return;
+    }
+    
+    $(e.target).toggleClass('ri-lock-unlock-fill');
+    $(e.target).addClass('ri-lock-fill');
+
+    // Once the H&W are locked set height = width
+    $('input[name=height]').val($('input[name=width]').val());
+});
+
+$('input[name=width]').on('keyup', (e) => {
+    if (!$('#lockWidthAndHeight').hasClass('ri-lock-fill')) return;
+    $('input[name=height]').val(e.target.value);
+});
+
+$('input[name=height]').on('keyup', (e) => {
+    if (!$('#lockWidthAndHeight').hasClass('ri-lock-fill')) return;
+    $('input[name=width]').val(e.target.value);
+});
+
+$('#formatting-form form').on('submit', (e) => {
+    e.preventDefault();
+    let form = new FormData(e.target);
+    let payload = Object.fromEntries(form);
+
+    if(payload.width.length < 1 || parseInt(payload.width) < 1){
+        toast.error(`Width must be greater then 0`);
+        return;   
+    }
+
+    if(payload.height.length < 1 || parseInt(payload.height) < 1){
+        toast.error(`Height must be greater then 0`);
+        return;
+    }
+
+    resizedImages = {};
+    resizeImage(payload);
+});
+
+async function resizeImage(changes){
+    
+    document.getElementById('formatted-images').style.display = 'block';
+    console.log(changes, selectedFiles);
+
+    // Setup Canvas
+    const pica = window.pica();
+    const outputCanvas = document.createElement('canvas');
+
+    // Apply setting
+    outputCanvas.width = parseInt(changes.width);
+    outputCanvas.height = parseInt(changes.height);
+
+    // Run a loop for all file changes
+    Object.entries(selectedFiles).forEach( async ([key, value]) => {
+        
+        const image = new Image();
+        image.src = value.src;
+        image.onload = async function() {
+
+            const canvas = document.createElement('canvas');
+            canvas.width = image.width;
+            canvas.height = image.height;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(image, 0, 0);
+
+            const finalImage = await pica.resize(canvas, outputCanvas, {
+                quality: 3,
+                alpha: true
+            }).then(result => {
+                
+                if (changes.format !== 'png') {
+                    return pica.toBlob(result, 'image/jpeg', (parseInt(changes.quality)/100))
+                }
+
+                return pica.toBlob(result, 'image/png')
+                
+            });
+
+            let imageId = crypto.randomUUID()
+            resizedImages[imageId] = await getImageDimensions(finalImage);
+            resizedImages[imageId]['blob'] = finalImage;
+            resizedImages[imageId]['name'] = `PixLab-${value.name.split('.')[0]}.${changes.format}`;
+            resizedImages[imageId]['size'] = await formatFileSize(finalImage.size);
+
+            // Render resized images container
+            showAllResizedImage();
+
+        };
+    });
+
+}
+
+function showAllResizedImage(){
+
+    $('#formatted-images').find('div.image-preview').remove();
+    document.getElementById('formatted-images').style.display = 'block';
+
+    Object.entries(resizedImages).forEach(([key, value]) => {
+        const template = $('#resizedImageTemplate')[0].content.cloneNode(true);
+        $(template).find('button').prop('id', key);
+        $(template).find('img').prop('src', value.src);
+        $(template).find('h4').html(value.name);
+        $(template).find('h5').html(`${value.width} x ${value.width} px`);
+        $(template).find('p').html(value.size);
+        $('#formatted-images div.border-double').append(template);
+    })
+}
+
+$('#formatted-images').on('click', (e) => {
+
+    if (e.target.tagName !== 'BUTTON') return;
+
+    e.preventDefault();
+    let image = resizedImages[e.target.id];
+    saveAs(image.blob, image.name);
+});
