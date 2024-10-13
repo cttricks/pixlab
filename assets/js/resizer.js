@@ -146,14 +146,18 @@ imageDropArea.on('drop', (e) => {
     e.stopPropagation();
     const files = e.originalEvent.dataTransfer.files;
 
-    selectedFiles = {};
     handleImageDrop(files);
     document.querySelector('#formatting-form form').reset();
 });
 
 $('#choose-images').on('change', (e) => {
-    selectedFiles = {};
     handleImageDrop(e.target.files);
+    document.querySelector('#formatting-form form').reset();
+});
+
+$('label.btn-solid-error').on('click', (e) => {
+    selectedFiles = {};
+    showSelectedImage();
     document.querySelector('#formatting-form form').reset();
 });
 

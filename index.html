@@ -21,7 +21,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
-    <header class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-6">
+    <header class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-6 px-10">
         <div class="navbar">
             <div class="navbar-start">
                 <a class="navbar-item">
@@ -51,7 +51,7 @@
         </div>
     </header>
     
-    <main class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <main class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
         <!-- Feature: Resize Image -->
         <section class="w-full py-4">
             <h2 class="text-center font-rubik font-normal text-4xl text-gray-700">Images Resizer</h2>
@@ -90,10 +90,14 @@
                         </div>
                     </template>
                 </div>
+                <div class="mt-4 flex gap-4">
+                    <label class="btn btn-solid-error rounded-md"><i class="ri-delete-bin-7-fill mr-2"></i>Clear All</label>
+                    <label for="choose-images" class="btn btn-primary rounded-md"><i class="ri-image-add-fill mr-2"></i>Choose more</label>
+                </div>
 
                 <!-- Formatting -->
                 <h2 class="mt-12 text-left font-rubik font-normal text-3xl text-gray-700">Configure new size and formatting</h2>
-                <div class="mt-2 flex pt-4 gap-5">
+                <div class="mt-2 md:flex pt-4 gap-5">
                     <form class="flex-1">
                         <h3 class="font-rubik text-lg text-gray-600">Size</h3>
                         <div class="flex justify-start items-center gap-16 relative mt-2">
@@ -152,7 +156,7 @@
                             <button type="submit" class="btn btn-primary rounded-md text-base">Apply Changes</button>
                         </div>
                     </form>
-                    <div class="w-[340px] min-h-[280px] -mt-4 flex justify-center items-center flex-col-reverse">
+                    <div class="hidden md:flex w-[340px] min-h-[280px] -mt-4 justify-center items-center flex-col-reverse">
                         <img src="/assets/banners/banner1.png" class="mr-[50%] mix-blend-darken">
                         <img src="/assets/banners/banner2.png" class="mix-blend-darken">
                     </div>
@@ -199,8 +203,8 @@
 
     <footer class="w-fill bg-purple-50">
         <!-- Site info -->
-        <section class="py-16 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-            <div class="w-full flex gap-20">
+        <section class="py-16 px-10 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <div class="w-full md:flex gap-20">
                 <div class="flex-1">
                     <div class="flex justify-start">
                         <img src="/assets/icons/android-chrome-192x192.png" class="w-7 h-7">
@@ -208,9 +212,9 @@
                     </div>
                     <p class="font-rubik text-gray-700 font-light mt-4">PixLab is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security.</p>
                 </div>
-                <div class="flex-1 flex">
-                    <div class="flex-1 justify-end flex"></div>
-                    <div class="flex-1 justify-end flex">
+                <div class="flex-1 flex gap-10 md:gap-4 mt-10 md:mt-0">
+                    <div class="flex-1 justify-end hidden lg:flex"></div>
+                    <div class="md:flex-1 justify-start md:justify-end flex">
                         <div>
                             <h3 class="text-base font-rubik mb-3">Important Links</h3>
                             <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">About</a></p>
@@ -219,7 +223,7 @@
                             <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">GitHub Repo</a></p>
                         </div>
                     </div>
-                    <div class="flex-1 justify-end flex">
+                    <div class="md:flex-1 justify-start md:justify-end flex">
                         <div>
                             <h3 class="text-base font-rubik mb-3">Other Products</h3>
                             <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">How it works?</a></p>
@@ -230,7 +234,7 @@
             </div>
         </section>
         <!-- Copyright Info -->
-        <section class="w-full text-center bg-purple-600">
+        <section class="w-full text-center bg-purple-600 px-10">
             <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">PixLab &copy; 2024 All rights reserved - Reduce Images Online &amp; Offline</p>
         </section>
     </footer>
