@@ -148,10 +148,13 @@ imageDropArea.on('drop', (e) => {
 
     selectedFiles = {};
     handleImageDrop(files);
+    document.querySelector('#formatting-form form').reset();
 });
 
 $('#choose-images').on('change', (e) => {
+    selectedFiles = {};
     handleImageDrop(e.target.files);
+    document.querySelector('#formatting-form form').reset();
 });
 
 $('#imageDropArea div.z-10').on('click', () => {
@@ -225,9 +228,6 @@ $('#formatting-form form').on('submit', (e) => {
 
 async function resizeImage(changes){
     
-    document.getElementById('formatted-images').style.display = 'block';
-    console.log(changes, selectedFiles);
-
     // Setup Canvas
     const pica = window.pica();
     const outputCanvas = document.createElement('canvas');
@@ -293,11 +293,36 @@ function showAllResizedImage(){
     })
 }
 
-$('#formatted-images').on('click', (e) => {
-
-    if (e.target.tagName !== 'BUTTON') return;
+$('#formatted-images').on('click', async (e) => {
 
     e.preventDefault();
-    let image = resizedImages[e.target.id];
-    saveAs(image.blob, image.name);
+    if (e.target.tagName !== 'BUTTON') return;
+
+    // Handel individual image download
+    if (e.target.id !== 'download-all') {
+        let image = resizedImages[e.target.id];
+        saveAs(image.blob, image.name);
+        return;
+    }
+
+    // Handle download all - Case only one file
+    if(Object.keys(resizedImages).length < 2){
+        let image = resizedImages[Object.keys(resizedImages)[0]];
+        saveAs(image.blob, image.name);
+        return;
+    }
+
+    // Handle download all as zip for multiple files
+    const zip = new JSZip();
+
+    // Loop through each fileData object and add it to the ZIP
+    Object.entries(resizedImages).forEach(async ([key, value]) => {
+        zip.file(value.name, value.blob);
+    });
+
+    // Generate the ZIP file
+    zip.generateAsync({ type: 'blob' }).then(function(content) {
+        saveAs(content, 'PixLab.zip');
+    });
+
 });

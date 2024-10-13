@@ -77,6 +77,7 @@
             <div id="formatting-form">
                 <!-- Selected Images -->
                 <div class="border-2 flex p-8 gap-8 mt-12 rounded-md justify-start items-start border-dashed border-purple-500 relative">
+                    <label for="choose-images" class="absolute top-0 left-0 h-full w-full z-0 cursor-pointer"></label>
                     <template id="selected-images">
                         <div class="image-preview">
                             <i class="ri-close-line"></i>
@@ -174,7 +175,7 @@
                         </div>
                     </template>
                 </div>
-                <button class="btn btn-primary mt-4 rounded-md"><i class="ri-download-fill mr-1"></i>Download All Images</button>
+                <button id="download-all" class="btn btn-primary mt-4 rounded-md"><i class="ri-download-fill mr-1"></i>Download All Images</button>
             </div>
         </section>
 
@@ -250,6 +251,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pica/6.1.1/pica.min.js"></script>
     <script type="text/javascript" src="/assets/js/controls.js"></script>
