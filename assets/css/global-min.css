@@ -2956,6 +2956,11 @@ html:has(.modal-state:checked) {
   font-weight: 400;
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2993,6 +2998,10 @@ html:has(.modal-state:checked) {
 
 .mix-blend-darken {
   mix-blend-mode: darken;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .font-akaya-kanadaka{

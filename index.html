@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixLab - Images Resizer to resize your JPG, BMP, GIF, PNG images</title>
+    <!-- Primary Meta Tags -->
+    <title>Pix Lab - Images Resizer | A free offline tool, to resize, format & compress images</title>
+    <meta name="title" content="Pix Lab - Images Resizer | A free offline tool, to resize, format & compress images" />
+    <meta name="description" content="A completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pixlab.cttricks.com" />
+    <meta property="og:title" content="Pix Lab - Images Resizer | A free offline tool, to resize, format & compress images" />
+    <meta property="og:description" content="A completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server." />
+    <meta property="og:image" content="/assets/banners/banner3.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pixlab.cttricks.com" />
+    <meta property="twitter:title" content="Pix Lab - Images Resizer | A free offline tool, to resize, format & compress images" />
+    <meta property="twitter:description" content="A completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server." />
+    <meta property="twitter:image" content="/assets/banners/banner3.png" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
@@ -47,13 +64,14 @@
                     </div>
                 </div>
                 <a href="https://github.com/cttricks/pixlab" target="_blank" class="navbar-item"><i class="ri-github-line"></i></a>
+                <a class="navbar-item"><i class="ri-share-fill"></i></a>
             </div>
         </div>
     </header>
     
     <main class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-10">
         <!-- Feature: Resize Image -->
-        <section class="w-full py-4">
+        <section class="w-full py-4" id="image-resizer">
             <h2 class="text-center font-rubik font-normal text-4xl text-gray-700">Images Resizer</h2>
             <!-- Choose image container -->
             <div class="border-2 mt-12 rounded-md flex justify-center items-center border-dashed border-purple-500 relative" id="imageDropArea">
@@ -210,24 +228,25 @@
                         <img src="/assets/icons/android-chrome-192x192.png" class="w-7 h-7">
                         <div class="font-akaya-kanadaka text-2xl -mt-0.5 ml-0.5 color-main">ix Lab</div>
                     </div>
-                    <p class="font-rubik text-gray-700 font-light mt-4">PixLab is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security.</p>
+                    <p class="font-rubik text-gray-700 font-light mt-4">PixLab - Images resizer is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server.</p>
                 </div>
                 <div class="flex-1 flex gap-10 md:gap-4 mt-10 md:mt-0">
                     <div class="flex-1 justify-end hidden lg:flex"></div>
                     <div class="md:flex-1 justify-start md:justify-end flex">
                         <div>
                             <h3 class="text-base font-rubik mb-3">Important Links</h3>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">About</a></p>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Contact</a></p>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Privacy Policy</a></p>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">GitHub Repo</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline" href="mailto:hello@cttricks.com">Contact</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline" href="https://cttricks.com/privacy-policy-2/" target="_blank">Privacy Policy</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline" target="_blank" href="https://github.com/cttricks/pixlab">GitHub</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline" target="_blank" href="https://x.com/ct_tricks">Twitter</a></p>
                         </div>
                     </div>
                     <div class="md:flex-1 justify-start md:justify-end flex">
                         <div>
-                            <h3 class="text-base font-rubik mb-3">Other Products</h3>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">How it works?</a></p>
-                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Resize Images</a></p>
+                            <h3 class="text-base font-rubik mb-3">Other Projects</h3>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline">Favicon Generator</a></p>
+                            <p class="mb-1.5"><a class="text-gray-600 cursor-pointer hover:text-purple-600 hover:underline" href="/#image-resizer">Images Resizer</a></p>
+                            <p class="mb-1.5"><a class="text-gray-400 pointer-events-none">More coming soon</a></p>
                         </div>
                     </div>
                 </div>
@@ -235,7 +254,7 @@
         </section>
         <!-- Copyright Info -->
         <section class="w-full text-center bg-purple-600 px-10">
-            <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">PixLab &copy; 2024 All rights reserved - Reduce Images Online &amp; Offline</p>
+            <p class="text-base pt-4 pb-3 text-purple-100 font-rubik">&copy; 2024 Pix Lab &nbsp;&nbsp;&bull;&nbsp;&nbsp; Passionately crafted for you &nbsp;&nbsp;&bull;&nbsp;&nbsp; All rights reserved</p>
         </section>
     </footer>
 

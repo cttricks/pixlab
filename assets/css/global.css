@@ -10,6 +10,10 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .font-akaya-kanadaka{
     font-family: "Akaya Kanadaka", system-ui;
     font-weight: 400;

@@ -1,11 +1,11 @@
 [
     {
-        "question": "What is PixLab?",
-        "answer": "PixLab is a completely free image resizer that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security."
+        "question": "What is PixLab&apos;s Images Resizer?",
+        "answer": "PixLab&apos;s image resizer is a completely free image tool that works offline, allowing you to resize images, change their format, and compress them—all without the need to upload any files to a server. You can save your resized images as JPG, PNG, or GIF while enjoying complete privacy and security."
     },
     {
-        "question": "How it works?",
-        "answer": "Updating soon..."
+        "question": "How image resizer works?",
+        "answer": "The PixLab Image Resizer tool allows you to resize single or multiple images quickly and easily. It's powered by advanced libraries like Pica.js, which uses your computer's GPU to generate high-quality resized images efficiently. Currently, this tool supports reducing the size of images (descaling) with excellent quality, and you can fine-tune the settings according to your needs.<br><br>This tool is free and open-source, making it accessible for everyone. Feel free to resize your images without any cost!"
     },
     {
         "question": "Will my images be uploaded to a server?",
