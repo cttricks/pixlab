@@ -273,7 +273,10 @@ async function resizeImage(changes){
 
             const finalImage = await pica.resize(canvas, outputCanvas, {
                 quality: 3,
-                alpha: true
+                alpha: true,
+                unsharpAmount: 80,
+                unsharpRadius: 0.6,
+                unsharpThreshold: 2
             }).then(result => {
                 
                 if (changes.format !== 'png') {
