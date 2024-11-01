@@ -116,6 +116,7 @@ const handleImageDrop = async (files) => {
 
     if (log.length > 0) showImageImportErrorLogs(log);
     showSelectedImage();
+    $('#choose-images').val(null);
 
 }
 
@@ -174,7 +175,6 @@ $('#choose-images').on('change', (e) => {
 
 $('label.btn-solid-error').on('click', (e) => {
     selectedFiles = {};
-    $('#choose-images').val(null);
     showSelectedImage();
     document.querySelector('#formatting-form form').reset();
 });
