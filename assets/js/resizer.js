@@ -174,6 +174,7 @@ $('#choose-images').on('change', (e) => {
 
 $('label.btn-solid-error').on('click', (e) => {
     selectedFiles = {};
+    $('#choose-images').val(null);
     showSelectedImage();
     document.querySelector('#formatting-form form').reset();
 });
